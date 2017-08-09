@@ -73,7 +73,7 @@ function chooseTablePhotos(settings, currentSeason) {
     var imagePaths = getCurrentImagePaths(place, 'small');
 
     if (imagePaths.length === 0) {
-      place.tablePhoto = "img/misc/" + "no-image-available.png";
+      place.tablePhoto = "images/misc/" + "no-image-available.png";
     } else {
       var imagePath = getRandomElement(imagePaths);
       place.tablePhoto = imagePath;

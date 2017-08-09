@@ -66,14 +66,14 @@ function loadPlaceImages(currentPlace) {
     for (var i = 0; i < imageCount; i++) {
       var $previewImgLink = $("<a class='pointer'>" +
         "<div id='t" + i + "'>" +
-        "<img id='thumb" + pad(i, 2) + "' src='img/misc/loading.gif'/>" +
+        "<img id='thumb" + pad(i, 2) + "' src='images/misc/loading.gif'/>" +
         "</div>" +
         "</a>");
       $previewImgLink.click(getFunctionForSetCurrentPlaceImage(currentPlace, i));
 
       $thumbnailList.append($previewImgLink.wrap("<li></li>").parent());
     }
-    
+
     $("#photos").append($thumbnailList);
 
     setCurrentPlaceImage(currentPlace, 0);
@@ -87,8 +87,8 @@ function loadPlaceImages(currentPlace) {
     $('#map').html("");
     $('#map').append("<strong>Map</strong>");
 
-    var $mapLink = $("<a class='pointer'><div id='mt-" + currentPlace.code + "'>" + 
-      "<img src='" + "img/maps-sm/" + currentPlace.code + ".jpg'/></div></a>");
+    var $mapLink = $("<a class='pointer'><div id='mt-" + currentPlace.code + "'>" +
+      "<img src='" + "images/maps-sm/" + currentPlace.code + ".jpg'/></div></a>");
     $mapLink.click(function() {
       setImgToMap(currentPlace.code);
     });
@@ -100,7 +100,7 @@ function loadPlaceImages(currentPlace) {
     $('#map').append($mapList);
 
     pagephotos[imageCount + 1] = new Image();
-    pagephotos[imageCount + 1].src = "img/maps/" + currentPlace.code + ".jpg";
+    pagephotos[imageCount + 1].src = "images/maps/" + currentPlace.code + ".jpg";
   } else {
     $("#map").remove();
   }
@@ -163,7 +163,7 @@ function setCurrentPlaceImage(currentPlace, imgNum) {
 function setImgToMap(currentPlaceCode) {
   var imageview = document.getElementById("imageview");
   var imageviewImage = imageview.getElementsByTagName("img")[0];
-  var imgSrc = "img/maps/" + currentPlaceCode + ".jpg";
+  var imgSrc = "images/maps/" + currentPlaceCode + ".jpg";
 
   imageviewImage.src = imgSrc;
   imageviewImage.onclick = function() {
@@ -180,7 +180,7 @@ function setImgToMap(currentPlaceCode) {
 function setImgToNA() {
   var imageview = document.getElementById("imageview");
   var imageviewImage = imageview.getElementsByTagName("img")[0];
-  var imgSrc = "img/misc/" + "no-image-available.png";
+  var imgSrc = "images/misc/" + "no-image-available.png";
 
   imageviewImage.src = imgSrc;
   imageviewImage.onclick = function() {

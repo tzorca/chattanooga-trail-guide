@@ -7,7 +7,7 @@
 	}
 
 	body {
-		background-color: #eee; 
+		background-color: #eee;
 		font-family: 'Open Sans', sans-serif;
 		color: #333;
 		margin-left: auto;
@@ -43,7 +43,7 @@
 	.doubleindent { text-indent: 20px; }
 	.emindent { padding-left: 1em; }
 	.clear { clear: both;}
-	.cover { position:absolute; width:100%; height:100%; top:0; left: 0; z-index: 1; background-image: url('img/misc/empty.gif'); }
+	.cover { position:absolute; width:100%; height:100%; top:0; left: 0; z-index: 1; background-image: url('images/misc/empty.gif'); }
 	.relative {position:relative; }
 	.top { vertical-align:top; }
 	.inline { display:inline; }
@@ -84,7 +84,7 @@
 		margin: 0 auto;
 		display: inline-block;
 	}
-	
+
 	#header .container #logo {
 		font-weight: bold;
 		float: left;
@@ -118,7 +118,7 @@
 
 /*Search Panel*/
 	.ui-helper-hidden-accessible { display: none; }
-	
+
 	#searchpanel {
 		clear: both;
 		font-size: 0.875em;
@@ -137,7 +137,7 @@
 	}
 	.sort:link + .sort:visited { text-decoration: none; }
 	.sort:hover { text-decoration: underline; }
-	.sort:active + .sort:focus{ } 
+	.sort:active + .sort:focus{ }
 /*End Search Panel*/
 
 /*Footer*/
@@ -314,8 +314,8 @@
 	#placetitle em {
 		font-size: 0.75em;
 	}
-	
-	
+
+
 	/*Thumbnails*/
 	#thumbs, #mapthumbs {
 		list-style: none;
@@ -355,7 +355,7 @@
 		margin-top: 0;
 	}
 /*End Info Panel*/
-	
+
 /*Image Viewer*/
 	#imageview {
 		width: 70%;
@@ -390,7 +390,7 @@
 		border: 1px solid #999;
 		padding: 0px !important;
 		margin: 0px !important;
-		height: 1.5em;	
+		height: 1.5em;
 		width: 100%;
 		background-color: #eee;
 	}
@@ -440,5 +440,3 @@
 		color: #eee;
 	}
 /*End Labs-related stuff*/
-
-
