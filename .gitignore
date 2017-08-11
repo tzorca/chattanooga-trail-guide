@@ -3,3 +3,5 @@
 /public/javascripts/route-matrix.js
 /public/javascripts/park-content.js
 /public/images/*
+/config.js
+*.todo
