@@ -5,3 +5,4 @@
 /public/images/*
 /config.js
 *.todo
+/setup/concat.min.js
