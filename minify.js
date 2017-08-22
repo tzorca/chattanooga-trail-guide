@@ -2,7 +2,8 @@ var fs = require('fs');
 var path = require('path');
 var uglify = require("uglify-js");
 
-const scriptDir = '../public/javascripts/';
+const scriptDir = './public/javascripts/';
+const outputFilePath = './public/javascripts-min/combined.min.js';
 
 var filePaths = [];
 fs.readdir(scriptDir, function(err, fileNames) {
@@ -17,7 +18,6 @@ fs.readdir(scriptDir, function(err, fileNames) {
   }
 });
 
-
 function buildMinifiedScript(filePaths) {
   console.log(filePaths);
   var minifyInputMap = {};
@@ -27,9 +27,8 @@ function buildMinifiedScript(filePaths) {
   });
 
   var options = {
-    toplevel: true,
     compress: {
-        passes: 3
+      passes: 3
     },
     output: {
         beautify: false
@@ -38,16 +37,16 @@ function buildMinifiedScript(filePaths) {
 
   var result = uglify.minify(minifyInputMap, options);
 
-  if (reslt.error) {
+  if (result.error) {
     console.error(err);
     return;
   }
 
-  fs.writeFile('concat.min.js', result.code, function (err){
+  fs.writeFile(outputFilePath, result.code, function (err){
     if(err) {
       console.error(err);
     } else {
-      console.log("Script generated and saved:", 'concat.min.js');
+      console.log("Script generated and saved:", outputFilePath);
     }      
   });
 }

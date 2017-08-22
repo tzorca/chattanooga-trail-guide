@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon -e js,jade,json ./bin/www"
+    "start": "nodemon -e js,jade,json ./bin/www",
+    "minify": "node minify.js"
   },
   "dependencies": {
     "body-parser": "~1.15.1",
