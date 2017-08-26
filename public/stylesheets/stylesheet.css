@@ -245,19 +245,19 @@
 	}
 	.placecell {
 		width: 276px;
-		height: 276px;
+		height: 296px;
 		display: inline-block;
 		text-align: center;
 		vertical-align: top;
-		padding: 4px;
-		margin: 4px;
-		border: 1px solid #ebebec;
+		padding: 16px 8px 8px 8px;
+		margin: 0px;
+		border: 1px solid #eee;
 		overflow: hidden;
 	}
 
 	.placecell:hover {
-		background-color: #fff;
-		border: 1px solid #ddd;
+		background-color: #f9fff9;
+		border: 1px solid #e9eee9;
 	}
 
 	.placecell img {
