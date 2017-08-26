@@ -127,11 +127,11 @@ var siteContent = {
     }, {
       name: "Wild Trails",
       description: "\"Promoting the use, expansion and protection of trails in greater Chattanooga\"",
-      url: "http://wildtrails.org/index.html"
+      url: "http://wildtrails.org/"
     }, {
       name: "Tennessee State Parks",
       description: "",
-      url: "http://www.state.tn.us/environment/parks/"
+      url: "http://www.tnstateparks.com/"
     }]
   }, {
     category: "Local Running Groups",
@@ -140,9 +140,9 @@ var siteContent = {
       description: "\"Promoting Running and Fitness in Chattanooga\"",
       url: "http://www.chattanoogatrackclub.org"
     }, {
-      name: "Salomon Rock/Creek Trail Series",
+      name: "Rock/Creek Trail Races",
       description: "\"Trail Running races from 1k to 50 miles\"",
-      url: "http://www.rockcreek.com/race.rco"
+      url: "http://races.rockcreek.com/"
     }]
   }],
 
