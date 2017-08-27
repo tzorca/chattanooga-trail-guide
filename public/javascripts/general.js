@@ -101,7 +101,7 @@ var RunChattanoogaPage = function(pageType) {
   } else if (pageType == 'Labs') {
     loadLabsPage();
   } else if (pageType == 'Links') {
-    var linksHtml = "<h2>Links<\/h2><br \/>";
+    var linksHtml = "<h2>Links<\/h2>";
 
     siteContent.linkCollection.forEach(function (linkEntry) {
       linksHtml += "<strong>" + linkEntry.category + "<\/strong>";

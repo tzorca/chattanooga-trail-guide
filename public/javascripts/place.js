@@ -55,7 +55,7 @@ function loadPlaceImages(currentPlace) {
 
   // Load image panel, thumbnails panel, and first image
   var $imageView = $('#imageview');
-  $imageView.html("<img src=''>");
+  $imageView.css('background-image', '');
   if (imageCount) {
     pagephotos[0] = new Image();
     pagephotos[0].src = largeImagePaths[0];
@@ -144,51 +144,22 @@ function getFunctionForSetCurrentPlaceImage(currentPlace, imgNum) {
 /* globals fitImage */
 function setCurrentPlaceImage(currentPlace, imgNum) {
   var largeImagePaths = getCurrentImagePaths(currentPlace, "large");
-  var imageview = document.getElementById("imageview");
-  var imageviewImage = imageview.getElementsByTagName("img")[0];
   var imgSrc = largeImagePaths[imgNum];
-
-  imageviewImage.src = imgSrc;
-  imageviewImage.onclick = function() {
-    window.location = imgSrc;
-  };
-  imageviewImage.onload = function() {
-    fitImage(imageview, imageviewImage);
-  };
-
-  fitImage(imageview, imageviewImage);
+  var $imageview = $('#imageview');
+  $imageview.css('background-image', 'url(' + imgSrc + ')');
+  // var imageviewImage = imageview.getElementsByTagName("img")[0];
 }
 
 // Set the image view to display the map for the current location
 function setImgToMap(currentPlaceCode) {
-  var imageview = document.getElementById("imageview");
-  var imageviewImage = imageview.getElementsByTagName("img")[0];
+  var $imageview = $('#imageview');
   var imgSrc = "images/maps/" + currentPlaceCode + ".jpg";
-
-  imageviewImage.src = imgSrc;
-  imageviewImage.onclick = function() {
-    window.location = imgSrc;
-  };
-  imageviewImage.onload = function() {
-    fitImage(imageview, imageviewImage);
-  };
-
-  fitImage(imageview, imageviewImage);
+  $imageview.css('background-image', 'url(' + imgSrc + ')');
 }
 
 // Set image view's image to the no-image-available image
 function setImgToNA() {
-  var imageview = document.getElementById("imageview");
-  var imageviewImage = imageview.getElementsByTagName("img")[0];
+  var $imageview = $('#imageview');
   var imgSrc = "images/misc/" + "no-image-available.png";
-
-  imageviewImage.src = imgSrc;
-  imageviewImage.onclick = function() {
-    window.location = imgSrc;
-  };
-  imageviewImage.onload = function() {
-    fitImage(imageview, imageviewImage);
-  };
-
-  fitImage(imageview, imageviewImage);
+  $imageview.css('background-image', 'url(' + imgSrc + ')');
 }

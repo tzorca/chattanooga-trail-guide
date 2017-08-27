@@ -194,23 +194,6 @@ function convertToTimeString(time) {
   return timeString; //+ " (" + time + ")";
 }
 
-/* exported fitImage */
-function fitImage(imgContainer, img) {
-  var window_height = $(imgContainer).height();
-  var window_width = $(imgContainer).width();
-  var image_width = $(img).width();
-  var image_height = $(img).height();
-  var height_ratio = image_height / window_height;
-  var width_ratio = image_width / window_width;
-  if (height_ratio > width_ratio) {
-    $(img).width("auto");
-    $(img).height("100%");
-  } else {
-    $(img).width("100%");
-    $(img).height("auto");
-  }
-}
-
 /* exported buildGMapsLink */
 function buildGMapsLink(parkname, location) {
   var mapsLink = "";
