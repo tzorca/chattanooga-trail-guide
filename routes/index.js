@@ -1,5 +1,5 @@
 var express = require('express');
-var config = require('../config');
+var config = rootRequire('config');
 var router = express.Router();
 
 /* GET home page. */

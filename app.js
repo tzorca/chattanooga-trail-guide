@@ -1,3 +1,7 @@
+global.rootRequire = function(name) {
+  return require(__dirname + '/' + name);
+}
+
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');

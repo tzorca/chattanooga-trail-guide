@@ -6,3 +6,7 @@
 /config.js
 *.todo
 /setup/concat.min.js
+
+source-content/*
+public/javascripts-min/combined.min.js
+/public/javascripts-min/combined.min.js
