@@ -7,6 +7,11 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Chattanooga Trail Guide', isQA: config.isQA });
 });
 
+/* GET map page. */
+router.get('/map', function(req, res, next) {
+  res.render('map', { title: 'Chattanooga Trail Guide - Map', isQA: config.isQA });
+});
+
 /* GET links page. */
 router.get('/links', function(req, res, next) {
   res.render('links', { title: 'Chattanooga Trail Guide - Links', isQA: config.isQA });

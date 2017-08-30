@@ -1,11 +1,8 @@
 /* exported siteContent */
 var siteContent = {
   updates: [{
-    date: "3/20/2017",
-    description: "Added new photos for Chickamauga Dam."
-  }, {
     date: "12/10/2016",
-    description: "Added new photos for all parks. The photos you see are now selected automatically based on time of year."
+    description: "Added new photos for all parks."
   }, {
     date: "5/30/2016",
     description: "Added a few new photos for Chickamauga Battlefield and the North Chickamauga section of the Cumberland Trail."
