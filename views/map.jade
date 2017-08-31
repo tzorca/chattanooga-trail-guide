@@ -3,10 +3,9 @@ block header
   link(rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ==" crossorigin="")
   script(src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js" integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log==" crossorigin="")
   style(type='text/css').
-    #parksmap { height: 80vh; }
+    #parksmap { height: 85vh; }
 block content
   div#header
-  br
   div#parksmap
   br
   div.center
@@ -14,38 +13,14 @@ block content
   div#footer
 
   script.
-    var mymap;
-    
     $(function() {
       new RunChattanoogaPage('Parks');
 
-      initMap();
+      var mymap = initMap();
 
-      siteContent.places.forEach(addMarkersForPlace);
+      siteContent.places.forEach(function(place) {
+        addMarkersForPlace(mymap, place);
+      });
     });
 
-    function initMap() {
-      window.mymap = L.map('parksmap').setView([35.04563, -85.30968], 14);
-      L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-          attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
-          maxZoom: 16,
-          id: 'mapbox.streets',
-          accessToken: 'pk.eyJ1IjoiY2hhdHRhbm9vZ2F0cmFpbGd1aWRlIiwiYSI6ImNqNnd0cDljZzFkbGcycXM2d3N1Y3k5YmkifQ.oEACNqOkOcbSjbk3q94b9Q'
-      }).addTo(mymap);
-    }
-
-    function addMarkersForPlace(place) {
-      place.locations.forEach(function(location) {
-        var locationName = location[0];
-        var lat = location[1];
-        var lon = location[2];
-
-        var markerDescription = "<strong>" + place.name + "</strong><br>" +
-          locationName + "<br>" +
-          "<a target='_blank' href='/trail?place=" + place.code + "'>Trail Info</a><br>" +
-          "<a target='_blank' href='" + buildGMapsLink(place.name, location) + "'>Directions</a>";
-
-        var marker = L.marker([lat, lon]).addTo(window.mymap);
-        marker.bindPopup(markerDescription);
-      });
-    }
+  

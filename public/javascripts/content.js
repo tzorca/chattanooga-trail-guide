@@ -150,6 +150,7 @@ var siteContent = {
     "<div id=\"logo\"><a href=\"/?season={SC}\">Chattanooga Trail Guide<\/a><\/div>" +
     "<ul>" +
     "<li><a href=\"/?season={SC}\">Trails<\/a><\/li>" +
+    "<li><a href=\"map?season={SC}\">Map<\/a><\/li>" +
     "<li><a href=\"links?season={SC}\">Links<\/a><\/li>" +
     "<\/ul>" +
     "<\/div>"

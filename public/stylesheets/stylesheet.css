@@ -51,7 +51,7 @@
 		padding: 0.3em 0px 0px 0px;
 		text-align: left;
 		border-bottom: #ddd 1px solid;
-		font-size: 1.25em;
+		font-size: 1.1em;
 		position: relative;
 	}
 	#header .container {
@@ -99,9 +99,9 @@
 		clear: both;
 		font-size: 0.875em;
 		border-bottom: #ddd 1px solid;
-		background-color:  	#F0FFF0;
+		background-color: #F0FFF0;
 		color: #222;
-		padding: 0.5em 0.5em 0.5em 0.5em;
+		padding: 0.25em 0.5em 0.5em 0.5em;
 		margin-left: auto;
 		margin-right: auto;
 		text-align: left;
@@ -342,7 +342,6 @@
 	}
 
 	#imageview {
-		background-color: #dfd;
 		background-repeat: no-repeat;
 		background-size: contain;
 		width: auto;
