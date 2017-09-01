@@ -1,6 +1,9 @@
 /* exported siteContent */
 var siteContent = {
   updates: [{
+    date: "9/1/2017",
+    description: "Relaunched site as Chattanooga Trail Guide."
+  }, {
     date: "12/10/2016",
     description: "Added new photos for all parks."
   }, {
