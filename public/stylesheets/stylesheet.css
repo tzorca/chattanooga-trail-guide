@@ -39,8 +39,12 @@
 	.left { text-align: left; }
 	.indent { text-indent: 10px; }
 	.clear { clear: both;}
-	.top { vertical-align:top; }
+	.top { vertical-align: top; }
 	.pointer { cursor: pointer; }
+	.inlineFlexMiddle {
+		display: inline-flex;
+		vertical-align: middle;
+	}
 /*End Quick styles*/
 
 /*Header*/

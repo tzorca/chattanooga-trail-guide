@@ -3,11 +3,13 @@ html
   head
     title= title
     meta(name="viewport" content="width=device-width, initial-scale=1.0")
-    link(href='//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;subset=latin' rel='stylesheet')
-    link(rel='shortcut icon' href='favicon.ico' type='image/x-icon')
-    link(rel='stylesheet' type='text/css' href='stylesheets/stylesheet.css')
-    link(rel='stylesheet' type='text/css' href='stylesheets/jquery-ui-1.10.3.custom.min.css')
+    link(href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet")
+    link(href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet")
+    link(href='favicon.ico' rel='shortcut icon' type='image/x-icon')
+    link(href='stylesheets/stylesheet.css' rel='stylesheet' type='text/css')
+    link(href='stylesheets/jquery-ui-1.10.3.custom.min.css' rel='stylesheet' type='text/css')
     if isQA
+      script(src='javascripts/ga-script.js' type='text/javascript')
       script(src='javascripts/jquery-1.10.1.min.js' type='text/javascript')
       script(src='javascripts/jquery-ui-1.10.3.custom.min.js' type='text/javascript')
       script(src='javascripts/moment.min.js' type='text/javascript')

@@ -216,3 +216,29 @@ function buildGMapsLink(parkname, location) {
 
   return mapsLink;
 }
+
+
+
+/* exported buildActivityIcons */
+function buildActivityIcons(activityTypes) {
+  return activityTypes.map(function(activityType) {
+    var iconCode = "";
+
+    if (activityType == "run") {
+      iconCode = "&#xE566;";
+    } else if (activityType == "bike") {
+      iconCode = "&#xE52F;";
+    } else if (activityType == "hike") {
+      iconCode = "&#xE536;";
+    } else {
+      return "<div>[Unknown Activity Type]</div>";
+    }
+
+    return "<i title='" + capitalizeFirstLetter(activityType) + "' class='material-icons md-18'>" + iconCode + "</i>";
+  }).join("");
+}
+
+// Sourced from https://stackoverflow.com/a/42755730
+function capitalizeFirstLetter(word) {
+  return word[0].toUpperCase() + word.substr(1);
+}

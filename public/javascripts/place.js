@@ -25,7 +25,8 @@ function loadPlacePage(currentPlace) {
   //
   //    Description
   var descriptionHtml = "<strong>Description</strong>";
-  descriptionHtml += "<div class='indent'>Trail Distance: " + currentPlace.totalmiles + " miles</div>";
+  descriptionHtml += "<br /><span class='indent inlineFlexMiddle'>Activities: " + buildActivityIcons(currentPlace.activityTypes) + "</span>";
+  descriptionHtml += "<div class='indent'>Trail Distance: " + currentPlace.totalMiles + " miles</div>";
   $("#description").html(descriptionHtml);
   //
   //    Driving Directions

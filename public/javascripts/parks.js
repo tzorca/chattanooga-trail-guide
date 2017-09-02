@@ -201,7 +201,7 @@ function buildParksTable(settings, currentSeason) {
     parksTableHtml += "    </span>";
 
     // Trail Length
-    parksTableHtml += "    <span class=\"lighter vsm indent\"><strong>trail: </strong> " + place.totalmiles + " mi";
+    parksTableHtml += "    <span class=\"lighter vsm indent\"><strong>trail: </strong> " + place.totalMiles + " mi";
 
     // Drive time/distance
     if (place.drivingtime && place.drivingtime.length) {
@@ -237,7 +237,7 @@ function driveDistSort(a, b) {
 }
 
 function runDistSort(a, b) {
-  return b.totalmiles - a.totalmiles;
+  return b.totalMiles - a.totalMiles;
 }
 
 function difficultySort(a, b) {
