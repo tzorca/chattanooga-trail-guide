@@ -247,6 +247,15 @@
 	}
 /*End Parks Table*/
 
+/*Map*/
+#parksmap {
+	height: 85vh;
+	width: 95vw;
+	text-align: center;
+	margin: 0 auto;
+}
+/*End Map*/
+
 /*Column Container*/
 	.columncontainer {
 		display: table;
