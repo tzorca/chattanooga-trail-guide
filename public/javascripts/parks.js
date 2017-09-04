@@ -26,17 +26,17 @@ function loadParksPage(settings, currentSeason) {
     changeSorting(settings, currentSeason, 'name');
   });
 
-  var $sortByTrailLength = $("<a class='pointer sort'>Trail Length</a>");
+  var $sortByTrailLength = $("<a class='pointer sort'>Longest First</a>");
   $sortByTrailLength.click(function() {
     changeSorting(settings, currentSeason, 'runDist');
   });
 
-  var $sortByTrailDifficulty = $("<a class='pointer sort'>Trail Difficulty</a>");
+  var $sortByTrailDifficulty = $("<a class='pointer sort'>Easiest First</a>");
   $sortByTrailDifficulty.click(function() {
     changeSorting(settings, currentSeason, 'difficulty');
   });
 
-  var $sortByDrivingDistance = $("<a class='pointer sort'>Driving Distance</a>");
+  var $sortByDrivingDistance = $("<a class='pointer sort'>Closest First</a>");
   $sortByDrivingDistance.click(function() {
     openOriginChooser(settings);
   });
@@ -143,21 +143,21 @@ function assignRouteInfo(settings) {
 
 function assignDifficultyInfo() {
   siteContent.places.forEach(function(place) {
-    place.difficulty = parseDifficulty(place.subtitle);
+    place.difficulty = parseDifficulty(place.difficultySummary);
   });
 }
 
-function parseDifficulty(subtitle) {
+function parseDifficulty(difficultySummary) {
   var i, pathRating = 0,
     terrainRating = 0;
   for (i = 0; i < siteContent.pathTypes.length; i++) {
-    if (subtitle.indexOf(siteContent.pathTypes[i]) != -1) {
+    if (difficultySummary.indexOf(siteContent.pathTypes[i]) != -1) {
       pathRating = i;
       break;
     }
   }
   for (i = 0; i < siteContent.terrainTypes.length; i++) {
-    if (subtitle.indexOf(siteContent.terrainTypes[i]) != -1) {
+    if (difficultySummary.indexOf(siteContent.terrainTypes[i]) != -1) {
       terrainRating = i;
     }
   }
