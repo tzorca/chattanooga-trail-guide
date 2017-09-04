@@ -32,7 +32,7 @@ function loadPlacePage(currentPlace) {
   //    Driving Directions
   var directionsHtml = "<strong>Driving Directions</strong>";
   currentPlace.locations.forEach(function(location) {
-    directionsHtml += '<div class="indent"><a href="' + buildGMapsLink(currentPlace.name, location) + '">' + location[0] + '</a></div>';
+    directionsHtml += '<div class="indent"><a target="_blank" href="' + buildGMapsLink(currentPlace.name, location) + '">' + location[0] + '</a></div>';
   });
   $("#directions").html(directionsHtml);
 
