@@ -45,6 +45,11 @@
 		display: inline-flex;
 		vertical-align: middle;
 	}
+	.unstyledList {
+		list-style-type: none;
+		padding: 0;
+		margin: 0;
+	}
 /*End Quick styles*/
 
 /*Header*/
@@ -309,24 +314,24 @@
 	}
 
 	/*Thumbnails*/
-	#thumbs, #mapthumbs {
+	#thumbs {
 		list-style: none;
 		margin-top: 0.25em;
 		margin-bottom: 0em;
 		padding: 0px;
 	}
-	#thumbs ul, #mapthumbs ul {
+	#thumbs ul {
 		padding: 0;
 		margin: 0;
 	}
-	#thumbs li, #mapthumbs li {
+	#thumbs li {
 		float: left;
 		width: 50px;
 		height: 48px;
 		padding: 0;
 		margin: 0;
 	}
-	#thumbs li img, #mapthumbs li img {
+	#thumbs li img {
 		width: auto;
 		height: auto;
 		max-width: 32px;
@@ -339,7 +344,7 @@
 		display: block;
 		margin-top: 4px;
 	}
-	#thumbs li:hover img, #mapthumbs li:hover img {
+	#thumbs li:hover img {
 		width: auto;
 		height: auto;
 		max-width: 48px;

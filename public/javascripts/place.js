@@ -83,29 +83,23 @@ function loadPlaceImages(currentPlace) {
     setImgToNA();
   }
 
-  // Load map thumbnail and cache map image
-  if (currentPlace.hasmap == 1) {
+  // Add map links
+  if (currentPlace.maps && currentPlace.maps.length > 0) {
     $('#map').html("");
-    $('#map').append("<strong>Map</strong>");
+    $('#map').append("<strong>Maps</strong><br>");
 
-    var $mapLink = $("<a class='pointer'><div id='mt-" + currentPlace.code + "'>" +
-      "<img src='" + "images/maps-sm/" + currentPlace.code + ".jpg'/></div></a>");
-    $mapLink.click(function() {
-      setImgToMap(currentPlace.code);
+    currentPlace.maps.forEach(function(mapEntry) {
+      var mapTitle = mapEntry[0];
+      var mapUrl = siteContent.mapDirectory + mapEntry[1];
+      
+      var $mapLink = $("<div class='pointer indent'>" + mapTitle + "</div>");
+      $mapLink.data('map-url', mapUrl);
+      $mapLink.click(setImgToSelectedMap);
+      
+      $('#map').append($mapLink);
     });
 
-    var $mapListElement = $("<li></li>");
-    $mapListElement.append($mapLink);
-    var $mapList = $("<ul id='mapthumbs'></ul>");
-    $mapList.append($mapListElement);
-    $('#map').append($mapList);
-
-    pagephotos[imageCount + 1] = new Image();
-    pagephotos[imageCount + 1].src = "images/maps/" + currentPlace.code + ".jpg";
-  } else {
-    $("#map").remove();
   }
-
 
   // Cache images and thumbnails, displaying thumbnails as images are available
   if (imageCount > 0) {
@@ -151,11 +145,21 @@ function setCurrentPlaceImage(currentPlace, imgNum) {
   // var imageviewImage = imageview.getElementsByTagName("img")[0];
 }
 
-// Set the image view to display the map for the current location
-function setImgToMap(currentPlaceCode) {
+// Set the image view to display the selected map
+function setImgToSelectedMap() {
+  var $mapLink = $(this);
+  var mapUrl = $mapLink.data('map-url');
+
   var $imageview = $('#imageview');
-  var imgSrc = "images/maps/" + currentPlaceCode + ".jpg";
-  $imageview.css('background-image', 'url(' + imgSrc + ')');
+
+  var mapExt = mapUrl.split('.').pop();
+  if (mapExt == 'pdf') {
+    console.error("PDF support not yet implemented");
+  } else if (mapExt == 'jpg' || mapExt == 'png') {
+    $imageview.css('background-image', 'url(' + mapUrl + ')');
+  } else {
+    console.error("Unexpected map extension in " + mapUrl);
+  }
 }
 
 // Set image view's image to the no-image-available image

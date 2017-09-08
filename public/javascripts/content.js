@@ -97,6 +97,8 @@ var siteContent = {
 
   origins: ["Alton Park, TN", "Apison, TN", "Avondale, TN", "Bakewell, TN", "Bonny Oaks, TN", "Brainerd, TN", "Bridgeport, AL", "Bryant, AL", "Bushtown, TN", "Chattanooga, TN", "Chickamauga, GA", "Chickamauga, TN", "Cleveland, TN", "Clifton Hills, TN", "Cohutta, GA", "Collegedale, TN", "Dalton, GA", "Dunlap, TN", "East Brainerd, TN", "East Chattanooga, TN", "East Lake, TN", "East Ridge, TN", "Eastdale, TN", "Fairmount, TN", "Flintstone, GA", "Fort Oglethorpe, GA", "Glenwood, TN", "Graysville, GA", "Guild, TN", "Harrison, TN", "Hickory Valley, TN", "Higdon, AL", "Hixson, TN", "Indian Springs, GA", "Jasper, TN", "Kimball, TN", "La Fayette, GA", "Laager, TN", "Lakesite, TN", "Lookout Mountain, GA", "Lookout Mountain, TN", "Lookout Valley, TN", "Lupton City, TN", "McDonald, TN", "Middle Valley, TN", "North Chattanooga, TN", "Ooltewah, TN", "Orchard Knob, TN", "Palmer, TN", "Powells Crossroads, TN", "Red Bank, TN", "Ridgedale, TN", "Ridgeside, TN", "Ringgold, GA", "Rising Fawn, GA", "Rock Spring, GA", "Rocky Face, GA", "Rossville, GA", "Sale Creek, TN", "Sequatchie, TN", "Signal Mountain, TN", "Soddy-Daisy, TN", "South Pittsburg, TN", "Stuart Heights, TN", "Trenton, GA", "Tunnel Hill, GA", "Tyner, TN", "Varnell, GA", "Walden, TN", "Westside, GA", "Whiteside, TN", "Whitwell, TN", "Wildwood, GA"],
 
+  mapDirectory: "images/maps/",
+
   pathTypes: [
     "Flat",
     "Hilly",
