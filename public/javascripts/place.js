@@ -92,11 +92,13 @@ function loadPlaceImages(currentPlace) {
       var mapTitle = mapEntry[0];
       var mapUrl = siteContent.mapDirectory + mapEntry[1];
       
-      var $mapLink = $("<div class='pointer indent'>" + mapTitle + "</div>");
+      var $indentWrapper = $("<div class='indent'></div>");
+      var $mapLink = $("<a class='pointer' target='_blank'>" + mapTitle + "</a>");
       $mapLink.data('map-url', mapUrl);
       $mapLink.click(setImgToSelectedMap);
-      
-      $('#map').append($mapLink);
+
+      $indentWrapper.append($mapLink);
+      $('#map').append($indentWrapper);
     });
 
   }
@@ -141,20 +143,27 @@ function setCurrentPlaceImage(currentPlace, imgNum) {
   var largeImagePaths = getCurrentImagePaths(currentPlace, "large");
   var imgSrc = largeImagePaths[imgNum];
   var $imageview = $('#imageview');
+
+  // Clear current elements from image view (in case of embed)
+  $imageview.empty();
+
   $imageview.css('background-image', 'url(' + imgSrc + ')');
-  // var imageviewImage = imageview.getElementsByTagName("img")[0];
 }
 
 // Set the image view to display the selected map
 function setImgToSelectedMap() {
   var $mapLink = $(this);
   var mapUrl = $mapLink.data('map-url');
-
+  var mapExt = mapUrl.split('.').pop().toLowerCase();
   var $imageview = $('#imageview');
 
-  var mapExt = mapUrl.split('.').pop();
+  // Clear current elements from image view
+  $imageview.empty();
+  
+  // Set new view
   if (mapExt == 'pdf') {
-    console.error("PDF support not yet implemented");
+    $imageview.append("<embed src='" + mapUrl + "' type='application/pdf'></embed>");
+    console.log('ok');
   } else if (mapExt == 'jpg' || mapExt == 'png') {
     $imageview.css('background-image', 'url(' + mapUrl + ')');
   } else {
