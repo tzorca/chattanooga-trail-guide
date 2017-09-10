@@ -86,7 +86,7 @@ function loadPlaceImages(currentPlace) {
   // Add map links
   if (currentPlace.maps && currentPlace.maps.length > 0) {
     $('#map').html("");
-    $('#map').append("<strong>Maps</strong><br>");
+    $('#map').append("<strong>Trail Maps</strong><br>");
 
     currentPlace.maps.forEach(function(mapEntry) {
       var mapTitle = mapEntry[0];
@@ -163,7 +163,6 @@ function setImgToSelectedMap() {
   // Set new view
   if (mapExt == 'pdf') {
     $imageview.append("<embed src='" + mapUrl + "' type='application/pdf'></embed>");
-    console.log('ok');
   } else if (mapExt == 'jpg' || mapExt == 'png') {
     $imageview.css('background-image', 'url(' + mapUrl + ')');
   } else {
