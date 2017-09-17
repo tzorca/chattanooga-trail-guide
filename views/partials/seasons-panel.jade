@@ -1,0 +1,14 @@
+//- Currently unused
+div#seasons
+  ul
+    each season, seasonKey in siteContent.seasons
+      if settings.seasonCode == season.code
+        li
+          div.currentchoice #{season.name}
+      else
+        li
+          div.otherchoice
+            if pageType == "Parks"
+              a(href="/?season=" + season.code) #{season.name}
+            else
+              a(href=pageType.toLowerCase() + "?place=" + placeCode + "&season=" + season.code) #{season.name}

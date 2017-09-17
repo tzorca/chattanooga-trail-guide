@@ -1,5 +1,5 @@
 /* exported siteContent */
-var siteContent = {
+module.exports = {
   updates: [{
     date: "9/1/2017",
     description: "Relaunched site as Chattanooga Trail Guide."
@@ -115,6 +115,19 @@ var siteContent = {
     "dirt/gravel",
     "dirt/rock"
   ],
+
+  seasons: {
+    SpringSummerFall: {
+      code: "spring-summer-fall",
+      isWinter: false,
+      name: "Spring/Summer/Fall"
+    },
+    Winter: {
+      code: "winter",
+      isWinter: true,
+      name: "Winter"
+    }
+  },
 
   linkCollection: [{
     category: "Local Parks and Trails",

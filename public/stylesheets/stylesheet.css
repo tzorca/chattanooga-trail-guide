@@ -38,6 +38,7 @@
 	.bigger { font-size: 1.15em; }
 	.left { text-align: left; }
 	.indent { text-indent: 10px; }
+	.hidden { display: none; }
 	.clear { clear: both;}
 	.top { vertical-align: top; }
 	.pointer { cursor: pointer; }
@@ -343,6 +344,7 @@
 		padding: 0;
 		display: block;
 		margin-top: 4px;
+		background-image: url('/images/misc/loading.gif');
 	}
 	#thumbs li:hover img {
 		width: auto;

@@ -1,21 +1,78 @@
 extends layout
 
 block content
-  div#header
-  div.columncontainer
-    div#infopanel
-      div#placetitle
-      div.section#notes
-      div.section#description
-      div.imgsection#photos
-      div.section#map
-      div.section#directions
-      div.section#moreinfo
-    div.imageviewcontainer
-      div#imageview
-  div#footer
+	div.columncontainer
+		div#infopanel
+			div#placetitle #{ settings.place.name }
+				br
+				em #{settings.place.subtitle }
 
-  script.
-    $(function() {
-      new RunChattanoogaPage('Trail');
-    });
+			if settings.place.notes && settings.place.notes.length
+				div.section#notes
+					strong Note#{ settings.place.notes.length > 1 ? "s" : "" }
+					each note in settings.place.notes
+						div.indent !{note}
+
+			div.section#description
+				strong Description
+				br
+				span.indent.inlineFlexMiddle Activities: !{ util.buildActivityIcons(settings.place.activityTypes) }
+				div.indent Trail Distance: #{ settings.place.totalMiles } miles
+
+			div.imgsection#photos
+				strong Photos
+				ul#thumbs
+					each smallImagePath, idx in settings.place.smallImagePaths
+						- var largeImagePath = settings.place.largeImagePaths[idx];
+						li
+							a.imgLink.pointer(data-img-url=largeImagePath)
+								img(src=smallImagePath)
+
+			if settings.place.maps && settings.place.maps.length
+				div.section#map
+					strong Trail Maps
+					br
+					each mapEntry in settings.place.maps
+						div.indent
+							a.imgLink.pointer(target='_blank',data-img-url=siteContent.mapDirectory + mapEntry[1])
+								|#{mapEntry[0]}
+
+			div.section#directions
+				strong Driving Directions
+				each location in settings.place.locations
+					div.indent
+						a(target="_blank" href=util.buildGMapsLink(settings.place.name, location)) #{ location[0] }
+				
+			div.section#moreinfo
+				strong More Information
+				each link in settings.place.links
+					div.indent
+						a(target="_blank" href=link[1]) #{ link[0] }
+
+		div.imageviewcontainer
+			div#imageview(style='background-image: url("' + settings.place.largeImagePaths[0] + '")')
+
+
+	script.
+		$(function() {
+			$(".imgLink").click(setImgFromDataOfClickedElement);
+		});
+
+		function setImgFromDataOfClickedElement() {
+			var $mapLink = $(this);
+			var mapUrl = $mapLink.data('img-url');
+			var mapExt = mapUrl.split('.').pop().toLowerCase();
+			var $imageview = $('#imageview');
+
+			// Clear current elements from image view
+			$imageview.empty();
+			
+			// Set new view
+			if (mapExt == 'pdf') {
+				$imageview.append("<embed src='" + mapUrl + "' type='application/pdf'></embed>");
+			} else if (mapExt == 'jpg' || mapExt == 'png') {
+				$imageview.css('background-image', 'url(' + mapUrl + ')');
+			} else {
+				console.error("Unexpected image extension in " + mapUrl);
+			}
+		}

@@ -1,11 +1,12 @@
 extends layout
 
 block content
-  div#header
-  div.paper#links
-  div#footer
-
-  script.
-    $(function() {
-      new RunChattanoogaPage('Links');
-    });
+	div.paper#links
+		h3 Links
+		each linkEntry in siteContent.linkCollection
+			strong #{linkEntry.category}
+			each link in linkEntry.links
+				blockquote
+					a(href=link.url,target='_blank') #{link.name}
+					br
+					!{link.description}

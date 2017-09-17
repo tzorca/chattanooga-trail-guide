@@ -10,8 +10,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var compression = require('compression')
 
-var index = require('./routes/index');
-var trail = require('./routes/trail');
+var routes = require('./routes/routes');
 
 var app = express();
 
@@ -31,6 +30,14 @@ function shouldCompress (req, res) {
   return compression.filter(req, res)
 }
 
+
+
+// Define information and functions to be used on all pages
+app.use(function (req, res, next) {
+  res.locals.util = rootRequire('util');
+  next()
+});
+
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -38,8 +45,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', index);
-app.use('/trail', trail);
+app.use('/', routes);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
