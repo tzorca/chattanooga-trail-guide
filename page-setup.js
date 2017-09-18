@@ -35,13 +35,14 @@ module.exports.loadSettings = function(siteContent, qsParams) {
 
 module.exports.loadCurrentPlaceImagePaths = function(siteContent) {
   siteContent.trailList.forEach(function(place) {
-    place.smallImagePaths = module.exports.getCurrentImagePaths(place, 'small');
-    place.largeImagePaths = module.exports.getCurrentImagePaths(place, 'large');
+    place.xsImagePaths = module.exports.getCurrentImagePaths(place, 'xs');
+    place.smImagePaths = module.exports.getCurrentImagePaths(place, 'sm');
+    place.lgImagePaths = module.exports.getCurrentImagePaths(place, 'lg');
 
-    if (place.smallImagePaths.length === 0) {
+    if (place.smImagePaths.length === 0) {
       place.tablePhoto = "images/misc/" + "no-image-available.png";
     } else {
-      var imagePath = util.getRandomElement(place.smallImagePaths);
+      var imagePath = util.getRandomElement(place.smImagePaths);
       place.tablePhoto = imagePath;
     }
 
