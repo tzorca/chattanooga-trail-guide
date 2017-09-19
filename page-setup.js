@@ -5,7 +5,6 @@ module.exports.loadSettings = function(siteContent, qsParams) {
   var settings = {};
   settings.placeCode = qsParams.place || "";
   settings.seasonCode = qsParams.season || "";
-  settings.origin = qsParams.origin || "Chattanooga, TN";
   settings.sortBy = qsParams.sortBy || "name";
 
   // Load season from query string or from current date
@@ -28,10 +27,35 @@ module.exports.loadSettings = function(siteContent, qsParams) {
     }
   }
 
-  module.exports.loadCurrentPlaceImagePaths(siteContent)
+  module.exports.loadCurrentPlaceImagePaths(siteContent);
+  module.exports.assignDifficultyInfo(siteContent);
 
   return settings;
 };
+
+module.exports.assignDifficultyInfo = function(siteContent) {
+  var parseDifficulty = function(difficultySummary) {
+    var i, pathRating = 0, terrainRating = 0;
+    for (i = 0; i < siteContent.pathTypes.length; i++) {
+      if (difficultySummary.indexOf(siteContent.pathTypes[i]) != -1) {
+        pathRating = i;
+        break;
+      }
+    }
+    for (i = 0; i < siteContent.terrainTypes.length; i++) {
+      if (difficultySummary.indexOf(siteContent.terrainTypes[i]) != -1) {
+        terrainRating = i;
+      }
+    }
+
+    return pathRating * siteContent.terrainTypes.length + terrainRating;
+  };
+
+  siteContent.trailList.forEach(function(place) {
+    place.difficulty = parseDifficulty(place.difficultySummary);
+  });
+};
+
 
 module.exports.loadCurrentPlaceImagePaths = function(siteContent) {
   siteContent.trailList.forEach(function(place) {
