@@ -14,24 +14,20 @@ block content
 
 	div#parkstable
 		each place in siteContent.trailList
-			div.placecell(data-name=place.name, data-total-miles=place.totalMiles, data-difficulty=place.difficulty)
-				a(href='trail?place=' + place.code + '&season=' + settings.season.code)
+			div.placecell(data-name=place.name, data-total-miles=place.totalMiles, data-difficulty=place.difficulty, data-activity-types=place.activityTypes)
+				a(href='trail?place=' + place.code)
 					img(alt=place.name src=place.tablePhoto)
 				br
 				strong
-					a(href='trail?place=' + place.code + '&season=' + settings.season.code) #{place.name}
+					a(href='trail?place=' + place.code) #{place.name}
 				br
 				div.left
 					span.lighter.smaller.indent #{place.subtitle}
 					br
+					div.inlineFlexMiddle
 					span.lighter.vsm.indent
 						strong trail: 
 						|#{place.totalMiles} mi
-
-					if place.drivingtime && place.drivingtime.length
-						|&emsp;
-						strong drive:
-						|#{(place.drivingdist).toFixed(0)} mi ( #{(place.drivingtime * 1.1 / 60).toFixed(0)} min
 
 	div.center
 		div#updates

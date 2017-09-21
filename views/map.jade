@@ -10,7 +10,6 @@ block content
 
 	script.
 		var places = !{JSON.stringify(siteContent.trailList)};
-		console.log(places);
 		$(function() {
 			var mymap = initMap();
 
@@ -28,8 +27,8 @@ block content
 					accessToken: 'pk.eyJ1IjoiY2hhdHRhbm9vZ2F0cmFpbGd1aWRlIiwiYSI6ImNqNnd0cDljZzFkbGcycXM2d3N1Y3k5YmkifQ.oEACNqOkOcbSjbk3q94b9Q'
 			}).addTo(map);
 
-					return map;
-			}
+			return map;
+		}
 
 		function addMarkersForPlace(map, place) {
 			place.locations.forEach(function(location) {
@@ -37,13 +36,13 @@ block content
 				var lat = location[1];
 				var lon = location[2];
 
-				var markerDescription = "<strong>" + place.name + "</strong><br>" +
-				locationName + "<br>" +
-				"<a href='trail?place=" + place.code + "'>Trail Info</a><br>" +
-				"<a target='_blank' href='" + buildGMapsLink(place.name, location) + "'>Directions</a>";
+				var markerDetailHtml = "<a href='trail?place=" + place.code + "'><strong>" + place.name + "</strong></a><br>";
+				markerDetailHtml += "<span class='lighter smaller'>" + place.subtitle + "</span><br>";
+				markerDetailHtml += place.activityIconsHtml + "<br>";
+				markerDetailHtml += "<a target='_blank' href='" + buildGMapsLink(place.name, location) + "'>Directions to " + locationName + "</a>";
 
 				var marker = L.marker([lat, lon]).addTo(map);
-				marker.bindPopup(markerDescription);
+				marker.bindPopup(markerDetailHtml);
 			});
 		}
 

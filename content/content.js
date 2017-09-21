@@ -161,15 +161,4 @@ module.exports = {
     }]
   }],
 
-
-  footerText: "<p>&copy; 2012-2017 <a href=\"mailto:runchattanooga@gmail.com\">Tim Zorca<\/a><\/p>",
-
-  headerText: "<div class=\"container\">" +
-    "<div id=\"logo\"><a href=\"/?season={SC}\">Chattanooga Trail Guide<\/a><\/div>" +
-    "<ul>" +
-    "<li><a href=\"/?season={SC}\">Trails<\/a><\/li>" +
-    "<li><a href=\"map?season={SC}\">Map<\/a><\/li>" +
-    "<li><a href=\"links?season={SC}\">Links<\/a><\/li>" +
-    "<\/ul>" +
-    "<\/div>"
 };

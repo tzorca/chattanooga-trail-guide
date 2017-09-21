@@ -39,7 +39,7 @@
 	.left { text-align: left; }
 	.indent { text-indent: 10px; }
 	.hidden { display: none; }
-	.clear { clear: both;}
+	.clear { clear: both; }
 	.top { vertical-align: top; }
 	.pointer { cursor: pointer; }
 	.inlineFlexMiddle {

@@ -9,7 +9,7 @@ siteContent.trailList = rootRequire('content/trail-list').places;
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  var settings = pageSetup.loadSettings(siteContent, req.query);
+  var settings = pageSetup.setupPage(siteContent, req.query);
   res.render('index', {
     title: 'Chattanooga Trail Guide',
     isQA: config.isQA,
@@ -20,7 +20,7 @@ router.get('/', function(req, res, next) {
 
 /* GET trail page */
 router.get('/trail', function(req, res, next) {
-	var settings = pageSetup.loadSettings(siteContent, req.query);
+	var settings = pageSetup.setupPage(siteContent, req.query);
   res.render('trail', {
     title: settings.place.name + ' - Chattanooga Trail Guide',
     isQA: config.isQA,
@@ -31,17 +31,23 @@ router.get('/trail', function(req, res, next) {
 
 /* GET map page. */
 router.get('/map', function(req, res, next) {
-  res.render('map', { title: 'Map - Chattanooga Trail Guide',
+	var settings = pageSetup.setupPage(siteContent, req.query);
+  res.render('map', {
+  	title: 'Map - Chattanooga Trail Guide',
     isQA: config.isQA,
-    siteContent: siteContent
+    siteContent: siteContent,
+    settings: settings
   });
 });
 
 /* GET links page. */
 router.get('/links', function(req, res, next) {
-  res.render('links', { title: 'Links - Chattanooga Trail Guide',
+	var settings = pageSetup.setupPage(siteContent, req.query);
+  res.render('links', {
+  	title: 'Links - Chattanooga Trail Guide',
     isQA: config.isQA,
-    siteContent: siteContent
+    siteContent: siteContent,
+    settings: settings
   });
 });
 

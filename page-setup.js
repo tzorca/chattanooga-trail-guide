@@ -1,24 +1,12 @@
 var util = rootRequire('util');
 
 module.exports = {};
-module.exports.loadSettings = function(siteContent, qsParams) {
+module.exports.setupPage = function(siteContent, qsParams) {
   var settings = {};
   settings.placeCode = qsParams.place || "";
-  settings.seasonCode = qsParams.season || "";
   settings.sortBy = qsParams.sortBy || "name";
 
-  // Load season from query string or from current date
-  if (settings.seasonCode === siteContent.seasons.Winter.code) {
-    settings.season = siteContent.seasons.Winter;
-  } else if (settings.seasonCode === siteContent.seasons.SpringSummerFall.code) {
-    settings.season = siteContent.seasons.SpringSummerFall;
-  } else if (util.isWinter(new Date())) {
-  	settings.season = siteContent.seasons.Winter;
-  } else {
-    settings.season = siteContent.seasons.SpringSummerFall;
-  }
-
-  // Search place list for matching code
+  // Find current trail
   for (var i = 0; i < siteContent.trailList.length; i++) {
     var trail = siteContent.trailList[i];
     if (trail.code == settings.placeCode) {
@@ -29,8 +17,15 @@ module.exports.loadSettings = function(siteContent, qsParams) {
 
   module.exports.loadCurrentPlaceImagePaths(siteContent);
   module.exports.assignDifficultyInfo(siteContent);
+  module.exports.loadActivityIconsHtml(siteContent);
 
   return settings;
+};
+
+module.exports.loadActivityIconsHtml = function(siteContent) {
+	siteContent.trailList.forEach(function(trail) {
+		trail.activityIconsHtml = util.buildActivityIconsHtml(trail.activityTypes);
+	});
 };
 
 module.exports.assignDifficultyInfo = function(siteContent) {
